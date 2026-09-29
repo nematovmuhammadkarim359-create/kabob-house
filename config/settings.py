@@ -30,12 +30,18 @@ DEBUG = os.environ.get("DEBUG", "True").lower() == "true"
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
+    "kabob-house-production.up.railway.app",
 ]
 
 render_hostname = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
 
 if render_hostname:
     ALLOWED_HOSTS.append(render_hostname)
+
+railway_domain = os.environ.get("RAILWAY_PUBLIC_DOMAIN")
+
+if railway_domain:
+    ALLOWED_HOSTS.append(railway_domain)
 
 
 # =========================================================
